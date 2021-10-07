@@ -44,6 +44,8 @@ class DeptRepositoryTest {
 
         if (deptRepository.findById(10L).isPresent()) {
             System.out.println(deptRepository.findById(10L).get());
+//            System.out.println(deptRepository.findById(10L).get().getEmpList());  // LAZY 쓰면 안나옴 -> @Query문 써야함!
+            System.out.println(deptRepository.getDeptDeptno(10L));
         } else {
             System.out.println("no fouund data!");
         }
@@ -61,12 +63,19 @@ class DeptRepositoryTest {
 
     @Test
     void A003_update() {
-        var dept = deptRepository.findById(2L).get();
+        var dept = deptRepository.findById(10L).get();
 
         dept.setDname("changedName");
         dept.setLoc("changedLoc");
 
         System.out.println(deptRepository.save(dept));
+
+        var emp = empRepository.findById(10L).get();
+
+        emp.setEname("changedeame");
+        emp.setJob("changedJob");
+
+        System.out.println(empRepository.save(emp));
     }
 
     @Test
