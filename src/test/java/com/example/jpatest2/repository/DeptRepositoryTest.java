@@ -49,6 +49,13 @@ class DeptRepositoryTest {
         }
 
 //        System.out.println("Dept_read: " + dept);
+
+        if (empRepository.findById(10L).isPresent()) {
+            System.out.println(empRepository.findById(10L).get());
+        } else {
+            System.out.println("no fouund data!");
+        }
+
     }
 
 

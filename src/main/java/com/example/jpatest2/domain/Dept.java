@@ -7,7 +7,7 @@ import java.util.List;
 
 @Setter
 @Getter
-@ToString(exclude = "emp")
+@ToString(exclude = "empList")
 @Entity
 @NoArgsConstructor
 @Table(name = "dept")
