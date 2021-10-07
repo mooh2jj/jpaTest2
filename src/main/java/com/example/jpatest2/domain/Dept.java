@@ -1,13 +1,15 @@
 package com.example.jpatest2.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Setter
 @Getter
+@ToString
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "dept")
 public class Dept {
 
