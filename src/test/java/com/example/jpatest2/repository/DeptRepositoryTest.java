@@ -54,8 +54,7 @@ class DeptRepositoryTest {
     @Test
     void A003_delete() {
 
-        Dept dept = new Dept();
-        dept.setDetno(1L);
+        var dept = deptRepository.findById(2L).get();
 
         deptRepository.delete(dept);
 
