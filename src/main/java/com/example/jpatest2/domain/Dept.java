@@ -3,21 +3,24 @@ package com.example.jpatest2.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Setter
 @Getter
-@ToString
+@ToString(exclude = "emp")
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "dept")
 public class Dept {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long detno;
+    private Long deptno;
 
     private String dname;
 
     private String loc;
+
+    @OneToMany(mappedBy = "dept", fetch = FetchType.LAZY)
+    private List<Emp> empList;
+
 }
