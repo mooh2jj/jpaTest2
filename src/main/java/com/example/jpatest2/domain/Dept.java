@@ -13,6 +13,12 @@ import java.util.List;
 @Table(name = "dept")
 public class Dept {
 
+    public Dept(Long deptno, String dname, String loc) {
+        this.deptno = deptno;
+        this.dname = dname;
+        this.loc = loc;
+    }
+
     @Id
     private Long deptno;
 

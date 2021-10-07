@@ -13,15 +13,28 @@ import java.sql.Timestamp;
 @Table(name = "emp")
 public class Emp {
 
+    public Emp(Long empno, String ename, String job, Integer mgr, Timestamp hiredate, Integer sal, Integer comm, Long deptno) {
+        this.empno = empno;
+        this.ename = ename;
+        this.job = job;
+        this.mgr = mgr;
+        this.hiredate = hiredate;
+        this.sal = sal;
+        this.comm = comm;
+        Dept dept = new Dept();
+        dept.setDeptno(deptno);
+        this.dept = dept;
+    }
+
     @Id
     private Long empno;
 
     private String ename;
     private String job;
-    private int mgr;
+    private Integer mgr;
     private Timestamp hiredate;
-    private int sal;
-    private int comm;
+    private Integer sal;
+    private Integer comm;
 
     @ManyToOne
     @JoinColumn(name = "deptno", nullable = false)
